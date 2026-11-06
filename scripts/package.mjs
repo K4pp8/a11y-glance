@@ -1,0 +1,10 @@
+import { execFileSync } from "node:child_process";
+import { mkdir, readFile, rm } from "node:fs/promises";
+const { version } = JSON.parse(await readFile("package.json", "utf8"));
+const { version: manifestVersion } = JSON.parse(await readFile("dist/manifest.json", "utf8"));
+if (version !== manifestVersion) throw new Error("Package and manifest versions must match.");
+await mkdir("release", { recursive: true });
+const target = `a11y-glance-${version}.zip`;
+await rm(`release/${target}`, { force: true });
+execFileSync("zip", ["-qr", `../release/${target}`, "."], { cwd: "dist" });
+console.log(`Packaged release/${target}`);

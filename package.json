@@ -1,0 +1,42 @@
+{
+  "name": "a11y-glance",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Accessibility issues, one glance away. A local-first Chrome extension.",
+  "license": "MIT",
+  "author": "K4pp8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/K4pp8/a11y-glance.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:browser": "npm run build && playwright test",
+    "check": "npm run typecheck && npm test && npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "package": "npm run check && node scripts/package.mjs"
+  },
+  "dependencies": {
+    "axe-core": "4.14.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/chrome": "0.3.7",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "esbuild": "0.28.2",
+    "prettier": "3.9.10",
+    "sharp": "0.35.5",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Northline · Test workspace</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f7f6f2;
+        color: #24352f;
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 7vw;
+        border-bottom: 1px solid #dce1da;
+      }
+      header strong {
+        letter-spacing: -0.04em;
+        font-size: 22px;
+      }
+      nav {
+        display: flex;
+        gap: 28px;
+      }
+      nav a {
+        color: #4f6259;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      main {
+        max-width: 1120px;
+        margin: auto;
+        padding: 65px 6vw;
+      }
+      small {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 650;
+      }
+      h1 {
+        font-size: clamp(40px, 6vw, 68px);
+        line-height: 1.08;
+        letter-spacing: -0.06em;
+        font-weight: 550;
+        margin: 22px 0;
+      }
+      p {
+        max-width: 43ch;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .intro {
+        color: #9aa49e;
+        max-width: 34ch;
+      }
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid #dde1db;
+        box-shadow: 0 18px 48px #24352f08;
+      }
+      .card h2 {
+        font-size: 21px;
+        letter-spacing: -0.03em;
+        margin-top: 0;
+      }
+      .card p {
+        font-size: 14px;
+        color: #67766d;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        margin: 16px 0 6px;
+      }
+      input {
+        width: 100%;
+        height: 44px;
+        border: 1px solid #a5b2a8;
+        border-radius: 6px;
+        padding: 10px;
+        font: inherit;
+      }
+      .submit {
+        width: 100%;
+        margin: 22px 0 12px;
+        min-height: 44px;
+        border: 0;
+        border-radius: 6px;
+        background: #325b48;
+        color: white;
+        font: 600 14px system-ui;
+      }
+      .fine {
+        color: #b4bbb6 !important;
+        font-size: 12px !important;
+      }
+      .checkbox-row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 16px;
+        font-size: 13px;
+      }
+      .fake-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 1px solid #8c9d90;
+        border-radius: 4px;
+        flex-shrink: 0;
+      }
+      .bottom {
+        border-top: 1px solid #dce1da;
+        margin-top: 64px;
+        padding-top: 24px;
+        display: flex;
+        gap: 28px;
+        color: #637268;
+        font-size: 13px;
+      }
+      .art {
+        width: 100%;
+        height: 150px;
+        margin-top: 30px;
+        background: #e6e9df;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+      }
+      .art span {
+        width: 80px;
+        height: 80px;
+        background: #53735d;
+        border-radius: 50% 50% 12px 12px;
+        box-shadow:
+          60px 20px 0 -15px #b5c3a5,
+          -60px 20px 0 -15px #b5c3a5;
+      }
+      @media (max-width: 700px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          gap: 12px;
+        }
+        header {
+          padding: 20px;
+        }
+        main {
+          padding: 35px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>northline.</strong>
+      <nav aria-label="Main">
+        <a href="#workspace">Workspaces</a><a href="#membership">Membership</a>
+      </nav>
+    </header>
+    <main id="workspace">
+      <section class="hero" aria-labelledby="heading">
+        <div>
+          <small>A little room to think</small>
+          <h1 id="heading">Good work.<br />Better surroundings.</h1>
+          <p class="intro" id="low-contrast">
+            A considered space for independent minds. Find your next place to focus, meet, and make
+            things happen.
+          </p>
+          <div class="art" aria-hidden="true"><span></span></div>
+        </div>
+        <section class="card" id="membership" aria-labelledby="card-title">
+          <small>Make yourself at home</small>
+          <h2 id="card-title">Find your workspace</h2>
+          <p>Leave your details. We’ll save you a seat.</p>
+          <label for="name">Your name</label
+          ><input id="name" autocomplete="name" placeholder="Alex Morgan" />
+          <p style="margin: 16px 0 6px; font-size: 13px">Email address</p>
+          <input id="email" type="email" autocomplete="email" />
+          <div class="checkbox-row">
+            <div id="updates" class="fake-checkbox" role="checkbox" tabindex="0"></div>
+            <span>Send me occasional updates</span>
+          </div>
+          <button class="submit" type="button">Explore membership →</button>
+          <p class="fine" id="fine-print">No commitment. Just a conversation.</p>
+        </section>
+      </section>
+      <div class="bottom">
+        <span>Small teams. Independent minds.</span><span>Made for your working day.</span>
+      </div>
+    </main>
+  </body>
+</html>
